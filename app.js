@@ -19,7 +19,7 @@ const gameStart = () => {
                     compareHands(this.textContent, computerChoice);
                     player_HandChoices.src = `./assets/${this.textContent}.png`;
                     computer_HandChoices.src = `./assets/${computerChoice}.png`;
-                }, 1000);
+                }, 200);
             });
         });
     };
@@ -28,6 +28,14 @@ const gameStart = () => {
         const computerScore = document.querySelector("#computerScore p");
         playerScore.textContent = pScore;
         computerScore.textContent = cScore;
+
+        if (pScore === 5 || cScore === 5) {
+            const whoWins = pScore === 5 ? `You win!` : `You lose!`;
+            alert(whoWins);
+            location.reload();
+            return true;
+        }
+        return false;
     };
 
     const compareHands = (playerChoice, computerChoice) => {
@@ -37,6 +45,7 @@ const gameStart = () => {
             winner.textContent = "It's a tie! Try again.";
             return;
         };
+
         //checking for rock W
 
         if (playerChoice === "rock") {
@@ -147,6 +156,17 @@ const gameStart = () => {
     };
 
     play_a_game();
+
 };
 
-gameStart();
+const endGame = () => {
+    if (playerScore === 5 || computerScore === 5) {
+        const whoWins = playerScore === 5 ? `You win!` : `You lose!`;
+        alert(whoWins);
+        return true;
+    }
+    return false;
+};
+
+endGame();
+gameStart(); 
