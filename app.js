@@ -19,7 +19,7 @@ const gameStart = () => {
                     compareHands(this.textContent, computerChoice);
                     player_HandChoices.src = `./assets/${this.textContent}.png`;
                     computer_HandChoices.src = `./assets/${computerChoice}.png`;
-                }, 200);
+                }, 100);
             });
         });
     };
@@ -159,14 +159,4 @@ const gameStart = () => {
 
 };
 
-const endGame = () => {
-    if (playerScore === 5 || computerScore === 5) {
-        const whoWins = playerScore === 5 ? `You win!` : `You lose!`;
-        alert(whoWins);
-        return true;
-    }
-    return false;
-};
-
-endGame();
 gameStart(); 
