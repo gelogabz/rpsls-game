@@ -41,6 +41,18 @@ const gameStart = () => {
     const compareHands = (playerChoice, computerChoice) => {
         const winner = document.querySelector(".winner");
 
+        const checkHandHistory = () => {
+            let table = document.getElementById("matchHistory");
+            let row = table.insertRow(1);
+            let cellPHand = row.insertCell();
+            let cellCHand = row.insertCell();
+            let matchRes = row.insertCell();
+
+            cellPHand.innerHTML += `<td>${playerChoice}</tr>`;
+            cellCHand.innerHTML += `<td> ${computerChoice} </td>`;
+            matchRes.innerHTML += `<td> ${winner.innerText} </td>`;
+        }
+
         if (playerChoice === computerChoice) {
             winner.textContent = "It's a tie! Try again.";
             return;
@@ -52,17 +64,20 @@ const gameStart = () => {
             if (computerChoice === "scissors") {
                 winner.textContent = "🫵 Win";
                 pScore++;
+                checkHandHistory();
                 updateScore();
                 return;
             } else if (computerChoice === "lizard") {
                 winner.textContent = "🫵 Win";
                 pScore++;
                 updateScore();
+                checkHandHistory();
                 return;
             } else {
                 winner.textContent = "🤖 Wins";
                 cScore++;
                 updateScore();
+                checkHandHistory();
                 return;
             }
         };
@@ -74,16 +89,19 @@ const gameStart = () => {
             if (computerChoice === "rock") {
                 winner.textContent = "🫵 Win";
                 pScore++;
+                checkHandHistory();
                 updateScore();
                 return;
             } else if (computerChoice === "spock") {
                 winner.textContent = "🫵 Win";
                 pScore++;
+                checkHandHistory();
                 updateScore();
                 return;
             } else {
                 winner.textContent = "🤖 Wins";
                 cScore++;
+                checkHandHistory();
                 updateScore();
                 return;
             }
@@ -96,16 +114,19 @@ const gameStart = () => {
             if (computerChoice === "paper") {
                 winner.textContent = "🫵 Win";
                 pScore++;
+                checkHandHistory();
                 updateScore();
                 return;
             } else if (computerChoice === "lizard") {
                 winner.textContent = "🫵 Win";
                 pScore++;
+                checkHandHistory();
                 updateScore();
                 return;
             } else {
                 winner.textContent = "🤖 Wins";
                 cScore++;
+                checkHandHistory();
                 updateScore();
                 return;
             }
@@ -117,16 +138,19 @@ const gameStart = () => {
             if (computerChoice === "spock") {
                 winner.textContent = "🫵 Win";
                 pScore++;
+                checkHandHistory();
                 updateScore();
                 return;
             } else if (computerChoice === "paper") {
                 winner.textContent = "🫵 Win";
                 pScore++;
+                checkHandHistory();
                 updateScore();
                 return;
             } else {
                 winner.textContent = "🤖 Wins";
                 cScore++;
+                checkHandHistory();
                 updateScore();
                 return;
             }
@@ -138,25 +162,26 @@ const gameStart = () => {
             if (computerChoice === "scissors") {
                 winner.textContent = "🫵 Win";
                 pScore++;
+                checkHandHistory();
                 updateScore();
                 return;
             } else if (computerChoice === "rock") {
                 winner.textContent = "🫵 Win";
                 pScore++;
+                checkHandHistory();
                 updateScore();
                 return;
             } else {
                 winner.textContent = "🤖 Wins";
                 cScore++;
+                checkHandHistory();
                 updateScore();
                 return;
             }
         };
-
     };
 
     play_a_game();
-
 };
 
 gameStart(); 
